@@ -78,5 +78,8 @@ public interface IWaySegmentDTO extends IBaseWaySegmentDTO {
 	boolean isUrban();
 
 	void setUrban(boolean urban);
+
+    long getWayId();
+    void setWayId(long wayId);
 	
 }

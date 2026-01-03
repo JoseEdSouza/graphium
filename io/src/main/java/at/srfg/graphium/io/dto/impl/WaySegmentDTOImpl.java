@@ -21,6 +21,7 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vividsolutions.jts.geom.LineString;
 
 import at.srfg.graphium.io.dto.IBaseSegmentConnectionDTO;
@@ -49,6 +50,9 @@ public class WaySegmentDTOImpl extends BaseWaySegmentDTOImpl implements IWaySegm
 	protected boolean tunnel;
 	protected boolean bridge;
 	protected boolean urban;
+
+    @JsonProperty("osm_way_id")
+    protected long wayId;
 
 	public WaySegmentDTOImpl(){ super(); };
 	
@@ -154,5 +158,15 @@ public class WaySegmentDTOImpl extends BaseWaySegmentDTOImpl implements IWaySegm
 	public void setUrban(boolean urban) {
 		this.urban = urban;
 	}
+
+    @Override
+    public long getWayId() {
+        return wayId;
+    }
+
+    @Override
+    public void setWayId(long wayId) {
+        this.wayId = wayId;
+    }
 	
 }

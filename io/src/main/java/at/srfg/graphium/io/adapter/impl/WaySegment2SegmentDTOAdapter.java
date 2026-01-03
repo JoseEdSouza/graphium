@@ -50,6 +50,9 @@ public class WaySegment2SegmentDTOAdapter<O extends IWaySegmentDTO, I extends IW
 	@Override
 	protected void setModelValues(I segment, O segmentDTO) {
 		super.setModelValues(segment, segmentDTO);
+
+        segment.setWayId(segmentDTO.getWayId());
+
 		segment.setAccessBkw(segmentDTO.getAccessBkw());
 		segment.setAccessTow(segmentDTO.getAccessTow());
 		segment.setBridge(segmentDTO.isBridge());
@@ -63,10 +66,14 @@ public class WaySegment2SegmentDTOAdapter<O extends IWaySegmentDTO, I extends IW
 		segment.setLanesTow(segmentDTO.getLanesTow());
 		segment.setFrc(FuncRoadClass.getFuncRoadClassForValue(segmentDTO.getFrc()));
 		segment.setFormOfWay(FormOfWay.valueOf(segmentDTO.getFormOfWay()));
+
 	}
 
 	protected void setDtoValues(O segmentDTO, I segment) {
 		super.setDtoValues(segmentDTO, segment);
+
+        segmentDTO.setWayId(segment.getWayId());
+
 		segmentDTO.setAccessBkw(segment.getAccessBkw());
 		segmentDTO.setAccessTow(segment.getAccessTow());
 		if (segment.isBridge() != null) {
